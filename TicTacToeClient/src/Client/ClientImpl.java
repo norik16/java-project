@@ -48,32 +48,40 @@ public class ClientImpl implements Client{
         }
         if(response.equals("WIN")){
             return State.WIN;
-        }
-        //outToServer.writeBytes(".");
+        }        
         return null;
     }
 
     @Override
     public int getSize() throws IOException{
-        
-        return 0;
+        outToServer.writeBytes("SIZE"+"\n");
+        String response = inFromServer.readLine();
+        System.out.println(response);
+        return Integer.getInteger(response);
     }
 
     @Override
     public char getColor() throws IOException{
-        
-        return 0;
+        outToServer.writeBytes("COLOR"+"\n");
+        String response = inFromServer.readLine();
+        System.out.println(response);
+        return response.charAt(0);
     }
 
     @Override
     public char getGrid(int x, int y) throws IOException{
-        
-        return 0;
+        outToServer.writeBytes("GRID "+ x + " " + y  +"\n");
+        String response = inFromServer.readLine();
+        System.out.println(response);
+        return response.charAt(0);
     }
 
     @Override
-    public int play(int x, int y) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String play(int x, int y) throws IOException {
+        outToServer.writeBytes("PLAY "+ x + " " + y  +"\n");
+        String response = inFromServer.readLine();
+        System.out.println(response);
+        return response;
     }
     
 }

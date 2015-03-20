@@ -20,24 +20,25 @@ public class Main {
         ClientImpl cl = new ClientImpl();
 
         cl.connect("127.0.0.1", 3248);
-        
-        while(cl.getStatus().equals(State.PLAY ) || cl.getStatus().equals(State.WAIT ) ){
-            System.out.println("khabsdf");
-            if(cl.getStatus() == State.WAIT){
-                Thread.sleep(100);
-                continue;
+        int i = 0;
+        System.out.println("my color is: " + cl.getColor());
+        while (cl.getStatus().equals(State.PLAY) || cl.getStatus().equals(State.WAIT)) {
+
+            if (cl.getStatus() == State.WAIT) {
+                Thread.sleep(1000);
+
+            } else {
+                if (cl.play(i, 1) != "0\n") {
+                    cl.play(i, 2);
+                }
+                i++;
             }
-            
-            cl.getColor();
-            
+
         }
         System.out.println("end");
         System.out.println(cl.getStatus());
-        
-        
+
         //scl.disconnect();
     }
 
 }
-
-
