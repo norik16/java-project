@@ -28,10 +28,12 @@ public class Main {
                 Thread.sleep(1000);
 
             } else {
-                if (cl.play(i, 1) != "0\n") {
-                    cl.play(i, 2);
-                }
-                i++;
+                while (cl.getGrid(i, i) != '_' ) {
+                    i++;
+                } 
+                cl.play(i, i);
+                
+                Thread.sleep(1000);
             }
 
         }
