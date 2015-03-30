@@ -11,6 +11,18 @@ package Client;
  */
 public class mrizkaImpl implements mrizka {
 
+    private char [][] herniPole;
+    private int size;
+    private ClientImpl client;
+    
+    public mrizkaImpl(int size, ClientImpl client) {
+        this.client = client;
+        this.size = size;
+        herniPole = new char[size][size];
+    }
+    
+    
+    
     @Override
     public int getsize() {
         return 0;
