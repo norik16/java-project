@@ -29,13 +29,13 @@ public class mrizkaImpl implements mrizka {
     
     @Override
     public int getsize() {
-        return 0;
+        return size;
         
     }
 
     @Override
     public char zjistitZnak(int x, int y) {
-        return 0;
+        return herniPole[x][y];
         
     }
 

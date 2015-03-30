@@ -10,14 +10,31 @@ package Client;
  * @author xandel
  */
 public interface mrizka {
-   
-    public int getsize();
+   /**
+     * vrati velikost mrizky     
+     * @return size
+     */
+    public int getsize();   
     
+    /**
+     * vrati aktualni znak na dane souradnici
+     * O nebo X nebo "_"
+     * @param x
+     * @param y
+     * @return 
+     */
     public char zjistitZnak(int x,int y);
     
-    public void vypsatMrizku();
+    /**
+     * vypise mrizku
+     */
+    public void vypsatMrizku();    
     
-    public void aktualizaceMrizky();
+    /**
+     * aktualizuje mrizku
+     */
+    public void aktualizaceMrizky();    
+    
     
     
     
