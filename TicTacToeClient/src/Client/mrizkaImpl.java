@@ -5,6 +5,10 @@
  */
 package Client;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author xandel
@@ -43,6 +47,16 @@ public class mrizkaImpl implements mrizka {
     @Override
     public void aktualizaceMrizky() {
         
+        for(int r=0; r<=size; r++){
+            for(int s=0; s<=size; s++){
+                try {
+                    herniPole[r][s]=client.getGrid(r,s);
+                } catch (IOException ex) {
+                    Logger.getLogger(mrizkaImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        
+        }
     }
     
 }
