@@ -62,5 +62,25 @@ public class Main {
 
         //scl.disconnect();
     }
+    
+    public static void play(ClientImpl cl) throws IOException{
+        mrizkaImpl mr = new mrizkaImpl(cl.getSize(), cl);
+        
+        
+        for (int i=0; i<mr.getsize(); i++){
+            for (int j=0; j<mr.getsize()-4; j++){
+                if(mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+1) && 
+                        mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+2)  &&
+                        mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+3)){
+                    
+                    
+                    
+                }
+                four_I ctverice = new four_I(new point(i,j), new point(i,j+1),new point(i,j+2),new point(i,j+3), mr.zjistitZnak(i, j));
+            }
+        }
+        
+        
+    }
 
 }
