@@ -1,31 +1,31 @@
 /*
-* The MIT License
-*
-* Copyright 2015 LukeMcNemee.
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in
-* all copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-* THE SOFTWARE.
-*/
-
+ * The MIT License
+ *
+ * Copyright 2015 LukeMcNemee.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 package Client;
 
 import java.io.IOException;
-
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -48,11 +48,11 @@ public class Main {
                 Thread.sleep(1000);
 
             } else {
-                while (cl.getGrid(i, i) != '_' ) {
+                while (cl.getGrid(i, i) != '_') {
                     i++;
-                } 
+                }
                 cl.play(i, i);
-                
+
                 Thread.sleep(1000);
             }
 
@@ -62,26 +62,68 @@ public class Main {
 
         //scl.disconnect();
     }
-    
-    public static void play(ClientImpl cl) throws IOException{
+
+    public static void play(ClientImpl cl) throws IOException {
         mrizkaImpl mr = new mrizkaImpl(cl.getSize(), cl);
-        
-        
-        for (int i=0; i<mr.getsize(); i++){
-            for (int j=0; j<mr.getsize()-3; j++){
-                if(mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+1) && 
-                        mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+2)  &&
-                        mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+3)){
-                    four ctverice = new four(new point(i,j), new point(i,j+1), new point(i,j+2), new point(i,j+3), mr.zjistitZnak(i, j));                   
-                }else if (mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+1) && 
-                        mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+2)){
+
+        for (int i = 0; i < mr.getsize(); i++) {
+            for (int j = 0; j < mr.getsize() - 3; j++) {
+                //if for 4 points
+                /*int xd = 0;
+                int od = 0;
+                int xv = 0;
+                int ov = 0;
+                int xh = 0;
+                int oh = 0;*/
+                
+                Set<point> xd = new HashSet<>();                
+                Set<point> od = new HashSet<>();                
+                Set<point> xv = new HashSet<>();                
+                Set<point> ov = new HashSet<>();                
+                Set<point> xh = new HashSet<>();                
+                Set<point> oh = new HashSet<>();
+
+                for (int n = 0; n < 5; n++) {
+                    if (mr.zjistitZnak(i + n, j) == 'X') {
+                        
+                        xh.add(new point(i + n, j)); //tohle udelat pro vsechny zbyle promenne do vsech smeru
+                    } else {
+                        oh++;
+                    }
+
+                    if (mr.zjistitZnak(i, j + n) == 'X') {
+                        xv++;
+                    } else {
+                        ov++;
+                    }
+
+                    if (mr.zjistitZnak(i + n, j + n) == 'X') {
+                        xd++;
+                    } else {
+                        od++;
+                    }
+                } // v promenych xh az od jsou ulozeny pocty jednotlivych znaku
+                
+                if ( xh == 4){
+                    
+                    for (int n = 0; n < 5; n++){ //kompletne prekopat
+                        if
+                    }
+                    four ctverice = new four(new point(i, j), new point(i, j + 1), new point(i, j + 2), new point(i, j + 3), mr.zjistitZnak(i, j)); 
+                }
+            }
+
+            
+            
+
+        }
+                        
                     three trojice = new three(new point(i,j), new point(i,j+1), new point(i,j+2), mr.zjistitZnak(i, j));
                 }
 
-            }
-        }
-        
-        
     }
+}
+
+}
 
 }
