@@ -76,7 +76,8 @@ public class Main {
                     
                     
                 }
-                four_I ctverice = new four_I(new point(i,j), new point(i,j+1),new point(i,j+2),new point(i,j+3), mr.zjistitZnak(i, j));
+                
+                four ctverice = new four(new point(i,j), new point(i,j+1), new point(i,j+2), new point(i,j+3), mr.zjistitZnak(i, j));
             }
         }
         
