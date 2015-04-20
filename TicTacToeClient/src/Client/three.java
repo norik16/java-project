@@ -15,7 +15,7 @@ public class three {
     private point Point3;
     private char znak;
 
-    public three(point Point1, point Point2, point Point3, point Point4, char znak) {
+    public three(point Point1, point Point2, point Point3, char znak) {
         this.Point1 = Point1;
         this.Point2 = Point2;
         this.Point3 = Point3;

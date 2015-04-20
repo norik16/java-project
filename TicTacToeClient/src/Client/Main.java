@@ -68,16 +68,16 @@ public class Main {
         
         
         for (int i=0; i<mr.getsize(); i++){
-            for (int j=0; j<mr.getsize()-4; j++){
+            for (int j=0; j<mr.getsize()-3; j++){
                 if(mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+1) && 
                         mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+2)  &&
                         mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+3)){
-                    
-                    
-                    
+                    four ctverice = new four(new point(i,j), new point(i,j+1), new point(i,j+2), new point(i,j+3), mr.zjistitZnak(i, j));                   
+                }else if (mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+1) && 
+                        mr.zjistitZnak(i, j) == mr.zjistitZnak(i, j+2)){
+                    three trojice = new three(new point(i,j), new point(i,j+1), new point(i,j+2), mr.zjistitZnak(i, j));
                 }
-                
-                four ctverice = new four(new point(i,j), new point(i,j+1), new point(i,j+2), new point(i,j+3), mr.zjistitZnak(i, j));
+
             }
         }
         

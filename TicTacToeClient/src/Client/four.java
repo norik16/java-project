@@ -5,6 +5,9 @@
  */
 package Client;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author luc
@@ -16,14 +19,28 @@ public class four {
     private point Point4;
     private char znak;
 
+     private Set<point> rozsireni;
+     
     public four(point Point1, point Point2, point Point3, point Point4, char znak) {
         this.Point1 = Point1;
         this.Point2 = Point2;
         this.Point3 = Point3;
         this.Point4 = Point4;
-        this.znak = znak;
+        this.znak = znak;        
+        this.rozsireni = new HashSet<>();
     }
 
+    public void pridatRozsireni(point x){
+        rozsireni.add(x);
+    }
+
+    public Set<point> getRozsireni() {
+        /*for(point x: rozsireni){
+            
+        }*/
+        return rozsireni;
+    }
+    
     public void setPoint1(point Point1) {
         this.Point1 = Point1;
     }
