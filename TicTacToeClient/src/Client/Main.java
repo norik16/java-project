@@ -76,40 +76,79 @@ public class Main {
                 int xh = 0;
                 int oh = 0;*/
                 
-                Set<point> xd = new HashSet<>();                
-                Set<point> od = new HashSet<>();                
+                
+                Set<point> xh = new HashSet<>();                
+                Set<point> oh = new HashSet<>();                
                 Set<point> xv = new HashSet<>();                
                 Set<point> ov = new HashSet<>();                
-                Set<point> xh = new HashSet<>();                
-                Set<point> oh = new HashSet<>();
+                Set<point> xd = new HashSet<>();                
+                Set<point> od = new HashSet<>();
 
-                for (int n = 0; n < 5; n++) {
+                for (int n = 0; n < 5; n++) { 
                     if (mr.zjistitZnak(i + n, j) == 'X') {
                         
                         xh.add(new point(i + n, j)); //tohle udelat pro vsechny zbyle promenne do vsech smeru
                     } else {
-                        oh++;
+                        oh.add(new point(i + n, j));
                     }
 
                     if (mr.zjistitZnak(i, j + n) == 'X') {
-                        xv++;
+                        xv.add(new point(i, j + n));
                     } else {
-                        ov++;
+                        ov.add(new point(i, j + n));
                     }
 
                     if (mr.zjistitZnak(i + n, j + n) == 'X') {
-                        xd++;
+                        xd.add(new point(i + n, j + n));
                     } else {
-                        od++;
+                        od.add(new point(i + n, j + n));
                     }
                 } // v promenych xh az od jsou ulozeny pocty jednotlivych znaku
                 
-                if ( xh == 4){
+               
+                if ( xh.size() == 4){
                     
-                    for (int n = 0; n < 5; n++){ //kompletne prekopat
-                        if
+                    four ctverice = new four(new point(i, j), new point(i+1, j), new point(i+2, j), new point(i+3, j), mr.zjistitZnak(i, j));
                     }
-                    four ctverice = new four(new point(i, j), new point(i, j + 1), new point(i, j + 2), new point(i, j + 3), mr.zjistitZnak(i, j)); 
+                else if (xh.size() == 3) { three trojice = new three (new point(i, j), new point(i+1, j), new point(i+2, j), mr.zjistitZnak(i, j));}
+                
+                
+                if ( oh.size() == 4){
+                
+                    four ctverice = new four(new point(i, j), new point(i+1, j), new point(i+2, j), new point(i+3, j), mr.zjistitZnak(i, j));   
+                }
+                else if (oh.size() == 3) { three trojice = new three (new point(i, j), new point(i+1, j), new point(i+2, j), mr.zjistitZnak(i, j));}
+                
+                
+                if ( xv.size() == 4){
+                
+                    four ctverice = new four(new point(i, j), new point(i, j + 1), new point(i, j + 2), new point(i, j + 3), mr.zjistitZnak(i, j));
+                }
+                else if (xv.size() == 3) { three trojice = new three (new point(i, j), new point(i, j + 1), new point(i, j + 2), mr.zjistitZnak(i, j));}
+                
+                
+                if ( ov.size() == 4){
+                
+                    four ctverice = new four(new point(i, j), new point(i, j + 1), new point(i, j + 2), new point(i, j + 3), mr.zjistitZnak(i, j));
+                }
+                else if (ov.size() == 3) { three trojice = new three (new point(i, j), new point(i, j + 1), new point(i, j + 2), mr.zjistitZnak(i, j));}
+                
+                
+                if ( xd.size() == 4){
+                
+                    four ctverice = new four(new point(i, j), new point(i + 1, j + 1), new point(i + 2, j + 2), new point(i + 3, j + 3), mr.zjistitZnak(i, j));
+                }
+                else if (xd.size() == 3) { three trojice = new three (new point(i, j), new point(i+1, j+1), new point(i+2, j+2), mr.zjistitZnak(i, j));}
+                
+                
+                if ( od.size() == 4){
+                
+                    four ctverice = new four(new point(i, j), new point(i + 1, j + 1), new point(i + 2, j + 2), new point(i + 3, j + 3), mr.zjistitZnak(i, j));
+                }
+                else if (od.size() == 3) { three trojice = new three (new point(i, j), new point(i+1, j+1), new point(i+2, j+2), mr.zjistitZnak(i, j));}
+               
+                
+                     
                 }
             }
 
