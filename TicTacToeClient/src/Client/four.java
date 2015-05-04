@@ -30,6 +30,14 @@ public class four {
         this.rozsireni = new HashSet<>();
     }
 
+    public four(Set<point> points) {
+        this.Point1 = (point) points.toArray()[0];
+        this.Point2 = (point) points.toArray()[1];
+        this.Point3 = (point) points.toArray()[2];
+        this.Point4 = (point) points.toArray()[3];
+        this.znak = znak;
+    }
+
     public void pridatRozsireni(point x){
         rozsireni.add(x);
     }
@@ -61,6 +69,7 @@ public class four {
         this.znak = znak;
     }
 
+    
     public point getPoint1() {
         return Point1;
     }

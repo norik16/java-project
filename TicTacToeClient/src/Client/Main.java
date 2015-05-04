@@ -106,49 +106,45 @@ public class Main {
                 } // v promenych xh az od jsou ulozeny pocty jednotlivych znaku
                 
                
-                if ( xh.size() == 4){
-                    
-                    four ctverice = new four(new point(i, j), new point(i+1, j), new point(i+2, j), new point(i+3, j), mr.zjistitZnak(i, j));
+                
+                //pokud jsou v promenne 4/3 znaky tak vytvori novou ctverici/trojici z daneho hashsetu
+                if ( xh.size() == 4){     
+                    four ctverice = new four (xh);
                     }
-                else if (xh.size() == 3) { three trojice = new three (new point(i, j), new point(i+1, j), new point(i+2, j), mr.zjistitZnak(i, j));}
+                else if (xh.size() == 3) { three trojice = new three (xh);}
                 
                 
-                if ( oh.size() == 4){
-                
-                    four ctverice = new four(new point(i, j), new point(i+1, j), new point(i+2, j), new point(i+3, j), mr.zjistitZnak(i, j));   
-                }
-                else if (oh.size() == 3) { three trojice = new three (new point(i, j), new point(i+1, j), new point(i+2, j), mr.zjistitZnak(i, j));}
-                
-                
-                if ( xv.size() == 4){
-                
-                    four ctverice = new four(new point(i, j), new point(i, j + 1), new point(i, j + 2), new point(i, j + 3), mr.zjistitZnak(i, j));
-                }
-                else if (xv.size() == 3) { three trojice = new three (new point(i, j), new point(i, j + 1), new point(i, j + 2), mr.zjistitZnak(i, j));}
-                
-                
-                if ( ov.size() == 4){
-                
-                    four ctverice = new four(new point(i, j), new point(i, j + 1), new point(i, j + 2), new point(i, j + 3), mr.zjistitZnak(i, j));
-                }
-                else if (ov.size() == 3) { three trojice = new three (new point(i, j), new point(i, j + 1), new point(i, j + 2), mr.zjistitZnak(i, j));}
-                
-                
-                if ( xd.size() == 4){
-                
-                    four ctverice = new four(new point(i, j), new point(i + 1, j + 1), new point(i + 2, j + 2), new point(i + 3, j + 3), mr.zjistitZnak(i, j));
-                }
-                else if (xd.size() == 3) { three trojice = new three (new point(i, j), new point(i+1, j+1), new point(i+2, j+2), mr.zjistitZnak(i, j));}
-                
-                
-                if ( od.size() == 4){
-                
-                    four ctverice = new four(new point(i, j), new point(i + 1, j + 1), new point(i + 2, j + 2), new point(i + 3, j + 3), mr.zjistitZnak(i, j));
-                }
-                else if (od.size() == 3) { three trojice = new three (new point(i, j), new point(i+1, j+1), new point(i+2, j+2), mr.zjistitZnak(i, j));}
+               if ( oh.size() == 4){     
+                    four ctverice = new four (oh);
+                    }
+                else if (oh.size() == 3) { three trojice = new three (oh);}
+               
+               
+               if ( xv.size() == 4){     
+                    four ctverice = new four (xv);
+                    }
+                else if (xv.size() == 3) { three trojice = new three (xv);}
+               
+               
+               if ( ov.size() == 4){     
+                    four ctverice = new four (ov);
+                    }
+                else if (ov.size() == 3) { three trojice = new three (ov);}
+               
+               
+               if ( xd.size() == 4){     
+                    four ctverice = new four (xd);
+                    }
+                else if (xd.size() == 3) { three trojice = new three (xd);}
+               
+               
+               if ( od.size() == 4){     
+                    four ctverice = new four (od);
+                    }
+                else if (od.size() == 3) { three trojice = new three (od);}
                
                 
-                     
+                    
                 }
             }
 
@@ -157,12 +153,7 @@ public class Main {
 
         }
                         
-                    three trojice = new three(new point(i,j), new point(i,j+1), new point(i,j+2), mr.zjistitZnak(i, j));
-                }
-
-    }
+                    
+               
 }
 
-}
-
-}

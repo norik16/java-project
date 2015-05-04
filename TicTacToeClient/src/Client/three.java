@@ -5,6 +5,8 @@
  */
 package Client;
 
+import java.util.HashSet;
+import java.util.Set;
 /**
  *
  * @author luc
@@ -21,6 +23,15 @@ public class three {
         this.Point3 = Point3;
         this.znak = znak;
     }
+
+    public three(Set<point> points) {
+        this.Point1 = (point) points.toArray()[0];
+        this.Point2 = (point) points.toArray()[1];
+        this.Point3 = (point) points.toArray()[2];
+        this.znak = znak;
+    }
+    
+    
 
     public void setPoint1(point Point1) {
         this.Point1 = Point1;
