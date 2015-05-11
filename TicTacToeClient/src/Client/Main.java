@@ -66,7 +66,7 @@ public class Main {
     public static void play(ClientImpl cl) throws IOException {
         mrizkaImpl mr = new mrizkaImpl(cl.getSize(), cl);
 
-        for (int i = 0; i < mr.getsize(); i++) {
+        for (int i = 0; i < mr.getsize() - 3; i++) {
             for (int j = 0; j < mr.getsize() - 3; j++) {
                 //if for 4 points
                 /*int xd = 0;
@@ -88,19 +88,19 @@ public class Main {
                     if (mr.zjistitZnak(i + n, j) == 'X') {
                         
                         xh.add(new point(i + n, j)); //tohle udelat pro vsechny zbyle promenne do vsech smeru
-                    } else {
+                    } else if (mr.zjistitZnak(i + n, j) == 'Y') {
                         oh.add(new point(i + n, j));
                     }
 
                     if (mr.zjistitZnak(i, j + n) == 'X') {
                         xv.add(new point(i, j + n));
-                    } else {
+                    } else if (mr.zjistitZnak(i, j + n) == 'Y'){
                         ov.add(new point(i, j + n));
                     }
 
                     if (mr.zjistitZnak(i + n, j + n) == 'X') {
                         xd.add(new point(i + n, j + n));
-                    } else {
+                    } else if (mr.zjistitZnak(i + n, j + n) == 'Y'){
                         od.add(new point(i + n, j + n));
                     }
                 } // v promenych xh az od jsou ulozeny pocty jednotlivych znaku
@@ -108,40 +108,40 @@ public class Main {
                
                 
                 //pokud jsou v promenne 4/3 znaky tak vytvori novou ctverici/trojici z daneho hashsetu
-                if ( xh.size() == 4){     
+                if (( xh.size() == 4 )&&(oh.size() == 0)){     
                     four ctverice = new four (xh);
-                    }
-                else if (xh.size() == 3) { three trojice = new three (xh);}
+                }
+                else if ((xh.size() == 3)&&(oh.size() == 0)) { three trojice = new three (xh);}
                 
                 
-               if ( oh.size() == 4){     
+                if (( oh.size() == 4)&&(xh.size() == 0)){     
                     four ctverice = new four (oh);
-                    }
-                else if (oh.size() == 3) { three trojice = new three (oh);}
+                }
+                else if ((oh.size() == 3)&&(xh.size() == 0)) { three trojice = new three (oh);}
                
                
-               if ( xv.size() == 4){     
+                if (( xv.size() == 4)&&(ov.size() == 0)){     
                     four ctverice = new four (xv);
-                    }
-                else if (xv.size() == 3) { three trojice = new three (xv);}
+                }
+                else if ((xv.size() == 3)&&(ov.size() == 0)) { three trojice = new three (xv);}
                
                
-               if ( ov.size() == 4){     
+                if (( ov.size() == 4)&&(xv.size() == 0)){     
                     four ctverice = new four (ov);
-                    }
-                else if (ov.size() == 3) { three trojice = new three (ov);}
+                }
+                else if ((ov.size() == 3)&&(xv.size() == 0)) { three trojice = new three (ov);}
                
                
-               if ( xd.size() == 4){     
+                if (( xd.size() == 4)&&(od.size() == 0)){     
                     four ctverice = new four (xd);
-                    }
-                else if (xd.size() == 3) { three trojice = new three (xd);}
+                }
+                else if ((xd.size() == 3)&&(od.size() == 0)) { three trojice = new three (xd);}
                
                
-               if ( od.size() == 4){     
+                if (( od.size() == 4)&&(xd.size() == 0)){     
                     four ctverice = new four (od);
-                    }
-                else if (od.size() == 3) { three trojice = new three (od);}
+                }
+                else if ((od.size() == 3)&&(xd.size() == 0)) { three trojice = new three (od);}
                
                 
                     
